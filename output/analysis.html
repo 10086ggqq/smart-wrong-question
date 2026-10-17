@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智能错题分析报告</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#546e7a; --line:#b0bec5; --accent:#1565c0; --bg:#ffffff; --soft:#f2f6fb; }
+  * { box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+         color: var(--ink); background: var(--bg); margin: 0; line-height: 1.7; }
+  main { max-width: 880px; margin: 0 auto; padding: 32px 24px 64px; }
+  h1 { font-size: 26px; color: #0d47a1; border-bottom: 3px solid var(--accent); padding-bottom: 10px; }
+  h2 { font-size: 19px; color: var(--accent); margin-top: 36px; border-left: 5px solid var(--accent); padding-left: 10px; }
+  h3 { font-size: 15.5px; margin-top: 22px; }
+  .meta { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; font-size: 13px; color: var(--muted); }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th { background: var(--accent); color: #fff; padding: 7px 9px; text-align: left; }
+  td { border: 1px solid var(--line); padding: 6px 9px; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--soft); }
+  img { max-width: 100%; border: 1px solid var(--line); border-radius: 6px; }
+  .note { background: #fff8e1; border-left: 4px solid #ffb300; padding: 10px 14px; font-size: 13px; }
+  code { background: #eceff1; border-radius: 4px; padding: 1px 5px; font-size: 12.5px; }
+  ul,ol { padding-left: 22px; }
+  .footer { margin-top: 48px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<h1>智能错题分析报告</h1>
+<p class="meta">生成时间：2026-10-17T20:55:07　|　学科：数学　|　数据来源：sample_questions.md<br>
+本报告由智能错题分析 Skill 自动生成。凡未提供的数据均如实标注「未知/未提供」，推测内容均标注「推测」。</p>
+
+<h2>一、报告基本信息</h2>
+<table>
+<tr><th>项目</th><th>内容</th></tr>
+<tr><td>学科</td><td>数学</td></tr>
+<tr><td>题目来源</td><td>sample_questions.md</td></tr>
+<tr><td>题目总数</td><td>6</td></tr>
+<tr><td>含学生作答数据</td><td>5 题</td></tr>
+<tr><td>无学生作答数据</td><td>1 题</td></tr>
+<tr><td>含公式题目</td><td>6 题</td></tr>
+<tr><td>知识点匹配</td><td>成功 6 题 / 未匹配 0 题</td></tr>
+</table>
+
+<h2>二、错题整体概览</h2>
+<p><b>识别问题提示（需人工核验）：</b></p>
+<ul><li>Q005：学生标记为「（无）」，按未提供处理</li></ul>
+<ul>
+<li>有学生答案/解题过程：5 题 —— 可进行具体错因分析。</li>
+<li>无学生作答数据：1 题 —— 仅能分析一般性易错点，<b>不判断该学生的具体错误</b>。</li>
+</ul>
+
+<h2>三、主要薄弱知识点</h2>
+<table>
+<tr><th>排名</th><th>知识点</th><th>错题数</th><th>优先级</th><th>关联错题</th><th>掌握程度</th></tr>
+<tr><td>1</td><td>函数概念与表示</td><td>4</td>
+<td>0.74</td><td>Q001、Q002、Q004、Q005</td><td>未知</td></tr>
+<tr><td>2</td><td>函数奇偶性</td><td>1</td>
+<td>0.32</td><td>Q002</td><td>未知</td></tr>
+<tr><td>3</td><td>数列</td><td>1</td>
+<td>0.32</td><td>Q003</td><td>未知</td></tr>
+<tr><td>4</td><td>三角函数</td><td>1</td>
+<td>0.32</td><td>Q006</td><td>未知</td></tr>
+<tr><td>5</td><td>导数概念与几何意义</td><td>1</td>
+<td>0.25</td><td>Q005</td><td>未知</td></tr>
+<tr><td>6</td><td>导数与函数极值最值</td><td>1</td>
+<td>0.22</td><td>Q001</td><td>未知</td></tr>
+</table>
+<table>
+<tr><th>知识点</th><th>错题频率</th><th>近期重复</th><th>错因严重度</th><th>先修影响</th><th>复测差距</th></tr>
+<tr><td>函数概念与表示</td>
+<td>0.67（observed）</td>
+<td>1.00（observed）</td>
+<td>0.50（missing）</td>
+<td>1.00（observed）</td>
+<td>0.50（missing）</td></tr>
+<tr><td>函数奇偶性</td>
+<td>0.17（observed）</td>
+<td>0.00（observed）</td>
+<td>0.50（missing）</td>
+<td>0.50（observed）</td>
+<td>0.50（missing）</td></tr>
+<tr><td>数列</td>
+<td>0.17（observed）</td>
+<td>0.00（observed）</td>
+<td>0.50（missing）</td>
+<td>0.50（observed）</td>
+<td>0.50（missing）</td></tr>
+<tr><td>三角函数</td>
+<td>0.17（observed）</td>
+<td>0.00（observed）</td>
+<td>0.50（missing）</td>
+<td>0.50（observed）</td>
+<td>0.50（missing）</td></tr>
+<tr><td>导数概念与几何意义</td>
+<td>0.17（observed）</td>
+<td>0.00（observed）</td>
+<td>0.50（missing）</td>
+<td>0.17（observed）</td>
+<td>0.50（missing）</td></tr>
+<tr><td>导数与函数极值最值</td>
+<td>0.17（observed）</td>
+<td>0.00（observed）</td>
+<td>0.50（missing）</td>
+<td>0.00（observed）</td>
+<td>0.50（missing）</td></tr>
+</table>
+<p class="note">指标来源说明：<code>observed</code> = 实际记录值；<code>missing</code> = 数据缺失，按保守值估算。</p>
+
+<h2>四、错题明细表</h2>
+<table>
+<tr><th>题号</th><th>知识点</th><th>题干（摘要）</th><th>学生答案</th></tr>
+<tr><td>Q001</td><td>函数概念与表示、导数与函数极值最值</td>
+<td>已知函数 $f(x) = x^3 - 3x$，求函数的极值。</td>
+<td>极大值为 2，极小值为 -2。</td></tr>
+<tr><td>Q002</td><td>函数概念与表示、函数奇偶性</td>
+<td>判断函数 $f(x) = x^2 + 1$ 的奇偶性。</td>
+<td>$f(-x) = -f(x)$，所以是奇函数。</td></tr>
+<tr><td>Q003</td><td>数列</td>
+<td>已知等差数列 $\{a_n\}$ 中，$a_1 = 2$，$a_3 = 8$，求通项公式 $a_n$。</td>
+<td>$a_n = 3n + 2$。</td></tr>
+<tr><td>Q004</td><td>函数概念与表示</td>
+<td>函数 $f(x) = \ln(x^2 - 3x + 2)$ 的定义域是什么？</td>
+<td>$x < 1$ 或 $x > 2$。</td></tr>
+<tr><td>Q005</td><td>函数概念与表示、导数概念与几何意义</td>
+<td>利用导数求函数 $f(x) = x^3 - 3x$ 在区间 $[-2, 2]$ 上的最大值与最小值。</td>
+<td>未提供</td></tr>
+<tr><td>Q006</td><td>三角函数</td>
+<td>求 $\sin 30^\circ + \cos 60^\circ$ 的值。</td>
+<td>$\frac{\sqrt{3}}{2}$。</td></tr>
+</table>
+
+<h2>五、错因分析及证据</h2>
+<h3>Q001</h3>
+<ul>
+<li><b>可观察到的错误</b>：无（未提供学生作答数据，或作答正确）</li>
+<li><b>推测原因</b>：暂无法判断</li>
+<li><b>判断依据</b>：证据不足</li>
+<li><b>置信度</b>：低　|　<b>需用户确认</b>：是</li>
+</ul>
+<h3>Q002</h3>
+<ul>
+<li><b>可观察到的错误</b>：无（未提供学生作答数据，或作答正确）</li>
+<li><b>推测原因</b>：暂无法判断</li>
+<li><b>判断依据</b>：证据不足</li>
+<li><b>置信度</b>：低　|　<b>需用户确认</b>：是</li>
+</ul>
+<h3>Q003</h3>
+<ul>
+<li><b>可观察到的错误</b>：无（未提供学生作答数据，或作答正确）</li>
+<li><b>推测原因</b>：暂无法判断</li>
+<li><b>判断依据</b>：证据不足</li>
+<li><b>置信度</b>：低　|　<b>需用户确认</b>：是</li>
+</ul>
+<h3>Q004</h3>
+<ul>
+<li><b>可观察到的错误</b>：无（未提供学生作答数据，或作答正确）</li>
+<li><b>推测原因</b>：暂无法判断</li>
+<li><b>判断依据</b>：证据不足</li>
+<li><b>置信度</b>：低　|　<b>需用户确认</b>：是</li>
+</ul>
+<h3>Q005</h3>
+<ul>
+<li><b>可观察到的错误</b>：无（未提供学生作答数据，或作答正确）</li>
+<li><b>推测原因</b>：暂无法判断</li>
+<li><b>判断依据</b>：证据不足</li>
+<li><b>置信度</b>：低　|　<b>需用户确认</b>：是</li>
+</ul>
+<p class="note">⚠️ 未提供学生答案/解题过程，本模块不判断该学生的具体错误；以下内容仅为该题的一般性易错点，不是已发生的错误。</p><h3>Q006</h3>
+<ul>
+<li><b>可观察到的错误</b>：无（未提供学生作答数据，或作答正确）</li>
+<li><b>推测原因</b>：暂无法判断</li>
+<li><b>判断依据</b>：证据不足</li>
+<li><b>置信度</b>：低　|　<b>需用户确认</b>：是</li>
+</ul>
+
+<h2>六、知识依赖图</h2>
+<p><img src="assets/knowledge-graph.png" alt="知识依赖图"></p>
+<ul>
+<li>箭头方向：先修知识 → 后续知识；节点内数字为错题数量。</li>
+<li>颜色：红色 = 多次出错，橙色 = 出错 1 次，灰色 = 先修知识（本批未涉及）。</li>
+<li>未提供复测数据，<b>掌握程度为「未知」</b>，颜色仅表示出错频次。</li>
+</ul>
+
+<h2>七、题型地图</h2>
+<p><img src="assets/topic-map.png" alt="题型地图"></p>
+<ul><li>每个分组对应一类题型（按主要考点聚类）；优先级来自规则评分模型。</li></ul>
+
+<h2>八、7 天个性化复习计划</h2>
+<p>每日可用 60 分钟 × 安全系数 0.9 = 每日任务上限 <b>54 分钟</b>。复测间隔：每 3 天（保守安排）。</p>
+<h3>第 1 天：基础薄弱点突破</h3>
+<ul><li>突破知识点：函数概念与表示</li><li>完成理论回顾与错题重做</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>理论回顾：函数概念与表示</td><td>theory</td><td>15 分钟</td><td>能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。</td></tr>
+<tr><td>练习巩固：函数概念与表示</td><td>practice</td><td>30 分钟</td><td>独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。</td></tr>
+</table>
+<p><b>当日合计 45 / 54 分钟</b></p>
+<h3>第 2 天：巩固提升与变式练习</h3>
+<ul><li>突破知识点：导数与函数极值最值</li><li>完成理论回顾与错题重做</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>理论回顾：导数与函数极值最值</td><td>theory</td><td>15 分钟</td><td>能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。</td></tr>
+<tr><td>练习巩固：导数与函数极值最值</td><td>practice</td><td>30 分钟</td><td>独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。</td></tr>
+</table>
+<p><b>当日合计 45 / 54 分钟</b></p>
+<h3>第 3 天：巩固提升与变式练习</h3>
+<ul><li>突破知识点：函数奇偶性</li><li>完成理论回顾与错题重做</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>理论回顾：函数奇偶性</td><td>theory</td><td>15 分钟</td><td>能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。</td></tr>
+<tr><td>练习巩固：函数奇偶性</td><td>practice</td><td>30 分钟</td><td>独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。</td></tr>
+</table>
+<p><b>当日合计 45 / 54 分钟</b></p>
+<h3>第 4 天：复测检验</h3>
+<ul><li>复测前期内容（函数概念与表示、导数与函数极值最值）</li><li>标记真正掌握与仍需巩固的知识点</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>复测：函数概念与表示</td><td>retest</td><td>20 分钟</td><td>错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。</td></tr>
+<tr><td>复测：导数与函数极值最值</td><td>retest</td><td>20 分钟</td><td>错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。</td></tr>
+</table>
+<p><b>当日合计 40 / 54 分钟</b></p>
+<h3>第 5 天：巩固提升与变式练习</h3>
+<ul><li>突破知识点：数列</li><li>完成理论回顾与错题重做</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>理论回顾：数列</td><td>theory</td><td>15 分钟</td><td>能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。</td></tr>
+<tr><td>练习巩固：数列</td><td>practice</td><td>30 分钟</td><td>独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。</td></tr>
+</table>
+<p><b>当日合计 45 / 54 分钟</b></p>
+<h3>第 6 天：巩固提升与变式练习</h3>
+<ul><li>突破知识点：导数概念与几何意义</li><li>完成理论回顾与错题重做</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>理论回顾：导数概念与几何意义</td><td>theory</td><td>15 分钟</td><td>能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。</td></tr>
+<tr><td>练习巩固：导数概念与几何意义</td><td>practice</td><td>30 分钟</td><td>独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。</td></tr>
+</table>
+<p><b>当日合计 45 / 54 分钟</b></p>
+<h3>第 7 天：总复盘与查漏补缺</h3>
+<ul><li>复盘全部薄弱知识点（函数奇偶性、数列）</li><li>整理仍未解决的问题清单</li></ul>
+<table>
+<tr><th>任务</th><th>类型</th><th>用时</th><th>完成标准</th></tr>
+<tr><td>复测：函数奇偶性</td><td>retest</td><td>20 分钟</td><td>错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。</td></tr>
+<tr><td>复测：数列</td><td>retest</td><td>20 分钟</td><td>错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。</td></tr>
+</table>
+<p><b>当日合计 40 / 54 分钟</b></p>
+<h3>未能排入计划的任务</h3>
+<table>
+<tr><th>任务</th><th>原计划用时</th><th>原因</th></tr>
+<tr><td>理论回顾：三角函数</td><td>15 分钟</td><td>每日时间预算不足，未能排入计划</td></tr>
+<tr><td>练习巩固：三角函数</td><td>30 分钟</td><td>每日时间预算不足，未能排入计划</td></tr>
+</table>
+<ul><li>时间预算不足：2 个任务未能排入 7 天计划。建议增加每日学习时间、延长复习周期，或减少练习量。</li><li>以下知识点本次计划未覆盖：三角函数（时间预算限制）。</li></ul>
+<h2>九、复测记录</h2>
+<p>当前未提供复测/测评数据，记录表待用户完成复测任务后补充。掌握良好 → 延长间隔；部分掌握 → 保持练习；多次出错 → 回到先修；缺少反馈 → 保守安排。</p>
+
+<h2>十、后续学习建议</h2>
+<ol>
+<li><b>先修优先</b>：优先复习先修影响大的基础薄弱点，再进入综合题与变式题。</li>
+<li><b>关注错因而非题量</b>：每道错题定位到具体错误步骤。</li>
+<li><b>补测掌握程度</b>：完成首轮复测后更新记录，调整优先级与间隔。</li>
+<li><b>扩展知识库</b>：未匹配知识点请在知识库中补充。</li>
+<li><b>周期回顾</b>：每完成一个周期重新运行分析，对比优先级变化。</li>
+</ol>
+
+<h2>十一、数据来源与不确定性说明</h2>
+<p><b>归一化方式</b>：各指标均已归一到 [0,1]：频率=错题数/总题数；重复=min(1,(n-1)/2)；严重度=错因严重度映射均值；先修影响=被依赖数/最大被依赖数（含前置缺口加成）；复测差距缺失时取保守值。</p>
+<ul>
+<li>未提供复测数据 → 掌握程度全部标记为「未知」，retest_gap 为保守估算值。</li><li>未提供错因标注的题目 → error_severity 标记 missing，按保守值估算。</li><li>模型置信度不等于真实准确率；所有「推测」内容未经确认前不得作为结论。</li>
+<li>未提供学生作答数据的题目，分析仅为一般性易错点，<b>不是该学生已发生的错误</b>。</li>
+</ul>
+
+<p class="footer">本报告由智能错题分析 Skill 生成。如对识别结果有疑问，请以原始试卷为准。</p>
+</main>
+</body>
+</html>

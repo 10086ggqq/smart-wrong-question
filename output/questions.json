@@ -1,0 +1,407 @@
+{
+  "meta": {
+    "subject": "数学",
+    "source_file": "sample_questions.md",
+    "created_at": "2026-10-17T20:55:06",
+    "extraction_method": "markdown-normalize",
+    "question_count": 6,
+    "knowledge_base": "高中数学示例知识点库"
+  },
+  "questions": [
+    {
+      "question_id": "Q001",
+      "source_file": "sample_questions.md",
+      "question_text": "已知函数 $f(x) = x^3 - 3x$，求函数的极值。",
+      "latex": [
+        "f(x) = x^3 - 3x",
+        "f'(x) = 3x^2 - 3",
+        "f'(x) = 0",
+        "x = \\pm 1",
+        "x < -1",
+        "f'(x) > 0",
+        "-1 < x < 1",
+        "f'(x) < 0",
+        "x = -1",
+        "f(-1) = 2",
+        "x = 1",
+        "f(1) = -2"
+      ],
+      "options": [],
+      "standard_answer": "求导得 $f'(x) = 3x^2 - 3$，令 $f'(x) = 0$ 得 $x = \\pm 1$。当 $x < -1$ 时 $f'(x) > 0$，当 $-1 < x < 1$ 时 $f'(x) < 0$，故 $x = -1$ 处取得极大值 $f(-1) = 2$；同理 $x = 1$ 处取得极小值 $f(1) = -2$。",
+      "student_answer": "极大值为 2，极小值为 -2。",
+      "student_solution": "求导得 $f'(x) = 3x^2 - 3$，令 $f'(x) = 0$，解得 $x = \\pm 1$，代入原函数得极大值 2、极小值 -2。",
+      "student_note": "不知道哪里错了，答案看起来是对的。",
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        },
+        {
+          "knowledge_point_id": "derivative-extremum",
+          "knowledge_point_name": "导数与函数极值最值",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「极值」",
+            "答案/过程含「极大值」",
+            "答案/过程含「极小值」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q002",
+      "source_file": "sample_questions.md",
+      "question_text": "判断函数 $f(x) = x^2 + 1$ 的奇偶性。",
+      "latex": [
+        "f(x) = x^2 + 1",
+        "\\mathbb{R}",
+        "f(-x) = (-x)^2 + 1 = x^2 + 1 = f(x)",
+        "f(x)",
+        "-x",
+        "x^2 + 1"
+      ],
+      "options": [],
+      "standard_answer": "定义域为 $\\mathbb{R}$，关于原点对称；$f(-x) = (-x)^2 + 1 = x^2 + 1 = f(x)$，故 $f(x)$ 为偶函数。",
+      "student_answer": "$f(-x) = -f(x)$，所以是奇函数。",
+      "student_solution": "把 $-x$ 代入得 $x^2 + 1$，然后直接写了奇函数。",
+      "student_note": null,
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "答案/过程含「定义域」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        },
+        {
+          "knowledge_point_id": "parity",
+          "knowledge_point_name": "函数奇偶性",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "答案/过程含「奇函数」",
+            "答案/过程含「偶函数」",
+            "题干含「奇偶性」",
+            "答案/过程含「对称」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q003",
+      "source_file": "sample_questions.md",
+      "question_text": "已知等差数列 $\\{a_n\\}$ 中，$a_1 = 2$，$a_3 = 8$，求通项公式 $a_n$。",
+      "latex": [
+        "\\{a_n\\}",
+        "a_1 = 2",
+        "a_3 = 8",
+        "a_n",
+        "d",
+        "a_3 = a_1 + 2d = 8",
+        "d = 3",
+        "a_n = 2 + (n-1) \\times 3 = 3n - 1",
+        "a_n = 3n + 2"
+      ],
+      "options": [],
+      "standard_answer": "设公差为 $d$，$a_3 = a_1 + 2d = 8$，解得 $d = 3$，故 $a_n = 2 + (n-1) \\times 3 = 3n - 1$。",
+      "student_answer": "$a_n = 3n + 2$。",
+      "student_solution": "算出 $d = 3$ 之后，直接写成 $a_n = 3n + 2$。",
+      "student_note": "公差求对了，最后通项写错。",
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "sequences",
+          "knowledge_point_name": "数列",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「等差数列」",
+            "题干含「通项」",
+            "题干含「数列」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q004",
+      "source_file": "sample_questions.md",
+      "question_text": "函数 $f(x) = \\ln(x^2 - 3x + 2)$ 的定义域是什么？",
+      "latex": [
+        "f(x) = \\ln(x^2 - 3x + 2)",
+        "x^2 - 3x + 2 > 0",
+        "x < 1",
+        "x > 2",
+        "(-\\infty, 1) \\cup (2, +\\infty)"
+      ],
+      "options": [],
+      "standard_answer": "令 $x^2 - 3x + 2 > 0$，解得 $x < 1$ 或 $x > 2$，定义域为 $(-\\infty, 1) \\cup (2, +\\infty)$。",
+      "student_answer": "$x < 1$ 或 $x > 2$。",
+      "student_solution": "对数里面要大于 0，解了一元二次不等式。",
+      "student_note": null,
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "题干含「定义域」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q005",
+      "source_file": "sample_questions.md",
+      "question_text": "利用导数求函数 $f(x) = x^3 - 3x$ 在区间 $[-2, 2]$ 上的最大值与最小值。",
+      "latex": [
+        "f(x) = x^3 - 3x",
+        "[-2, 2]",
+        "f'(x) = 3x^2 - 3 = 0",
+        "x = \\pm 1",
+        "f(-2) = -2",
+        "f(-1) = 2",
+        "f(1) = -2",
+        "f(2) = 2"
+      ],
+      "options": [],
+      "standard_answer": "$f'(x) = 3x^2 - 3 = 0$ 得 $x = \\pm 1$。计算得 $f(-2) = -2$，$f(-1) = 2$，$f(1) = -2$，$f(2) = 2$。比较得最大值为 2，最小值为 -2。",
+      "student_answer": null,
+      "student_solution": null,
+      "student_note": "学生只抄录了题目，未提供作答内容。",
+      "ocr_confidence": null,
+      "recognition_issues": [
+        "学生标记为「（无）」，按未提供处理"
+      ],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        },
+        {
+          "knowledge_point_id": "derivative-concept",
+          "knowledge_point_name": "导数概念与几何意义",
+          "relevance_type": "辅助考点",
+          "evidence": [
+            "题干含「导数」"
+          ],
+          "confidence": "低",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true,
+        "note": "未提供学生答案/解题过程，本模块不判断该学生的具体错误；以下内容仅为该题的一般性易错点，不是已发生的错误。"
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q006",
+      "source_file": "sample_questions.md",
+      "question_text": "求 $\\sin 30^\\circ + \\cos 60^\\circ$ 的值。",
+      "latex": [
+        "\\sin 30^\\circ + \\cos 60^\\circ",
+        "\\sin 30^\\circ = \\frac{1}{2}",
+        "\\cos 60^\\circ = \\frac{1}{2}",
+        "\\cos 60^\\circ",
+        "\\frac{\\sqrt{3}}{2}"
+      ],
+      "options": [],
+      "standard_answer": "$\\sin 30^\\circ = \\frac{1}{2}$，$\\cos 60^\\circ = \\frac{1}{2}$，和为 1。",
+      "student_answer": "$\\frac{\\sqrt{3}}{2}$。",
+      "student_solution": "记错公式，把 $\\cos 60^\\circ$ 当成了 $\\frac{\\sqrt{3}}{2}$。",
+      "student_note": null,
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "trigonometry",
+          "knowledge_point_name": "三角函数",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「sin」",
+            "题干含「cos」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    }
+  ],
+  "dependency_edges": [
+    {
+      "source": "function-basics",
+      "target": "monotonicity",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "function-basics",
+      "target": "parity",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "function-basics",
+      "target": "limit",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "limit",
+      "target": "derivative-concept",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "derivative-concept",
+      "target": "derivative-operations",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "derivative-operations",
+      "target": "derivative-extremum",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "monotonicity",
+      "target": "derivative-extremum",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "function-basics",
+      "target": "trigonometry",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "function-basics",
+      "target": "plane-geometry",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    },
+    {
+      "source": "function-basics",
+      "target": "sequences",
+      "relation": "prerequisite",
+      "verified": true,
+      "source_of_truth": "knowledge-base"
+    }
+  ]
+}

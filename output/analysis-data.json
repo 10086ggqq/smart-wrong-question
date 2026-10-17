@@ -1,0 +1,901 @@
+{
+  "meta": {
+    "subject": "数学",
+    "source_file": "sample_questions.md",
+    "created_at": "2026-10-17T20:55:06",
+    "extraction_method": "markdown-normalize",
+    "question_count": 6,
+    "knowledge_base": "高中数学示例知识点库",
+    "generated_at": "2026-10-17T20:55:08"
+  },
+  "questions": [
+    {
+      "question_id": "Q001",
+      "source_file": "sample_questions.md",
+      "question_text": "已知函数 $f(x) = x^3 - 3x$，求函数的极值。",
+      "latex": [
+        "f(x) = x^3 - 3x",
+        "f'(x) = 3x^2 - 3",
+        "f'(x) = 0",
+        "x = \\pm 1",
+        "x < -1",
+        "f'(x) > 0",
+        "-1 < x < 1",
+        "f'(x) < 0",
+        "x = -1",
+        "f(-1) = 2",
+        "x = 1",
+        "f(1) = -2"
+      ],
+      "options": [],
+      "standard_answer": "求导得 $f'(x) = 3x^2 - 3$，令 $f'(x) = 0$ 得 $x = \\pm 1$。当 $x < -1$ 时 $f'(x) > 0$，当 $-1 < x < 1$ 时 $f'(x) < 0$，故 $x = -1$ 处取得极大值 $f(-1) = 2$；同理 $x = 1$ 处取得极小值 $f(1) = -2$。",
+      "student_answer": "极大值为 2，极小值为 -2。",
+      "student_solution": "求导得 $f'(x) = 3x^2 - 3$，令 $f'(x) = 0$，解得 $x = \\pm 1$，代入原函数得极大值 2、极小值 -2。",
+      "student_note": "不知道哪里错了，答案看起来是对的。",
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        },
+        {
+          "knowledge_point_id": "derivative-extremum",
+          "knowledge_point_name": "导数与函数极值最值",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「极值」",
+            "答案/过程含「极大值」",
+            "答案/过程含「极小值」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q002",
+      "source_file": "sample_questions.md",
+      "question_text": "判断函数 $f(x) = x^2 + 1$ 的奇偶性。",
+      "latex": [
+        "f(x) = x^2 + 1",
+        "\\mathbb{R}",
+        "f(-x) = (-x)^2 + 1 = x^2 + 1 = f(x)",
+        "f(x)",
+        "-x",
+        "x^2 + 1"
+      ],
+      "options": [],
+      "standard_answer": "定义域为 $\\mathbb{R}$，关于原点对称；$f(-x) = (-x)^2 + 1 = x^2 + 1 = f(x)$，故 $f(x)$ 为偶函数。",
+      "student_answer": "$f(-x) = -f(x)$，所以是奇函数。",
+      "student_solution": "把 $-x$ 代入得 $x^2 + 1$，然后直接写了奇函数。",
+      "student_note": null,
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "答案/过程含「定义域」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        },
+        {
+          "knowledge_point_id": "parity",
+          "knowledge_point_name": "函数奇偶性",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "答案/过程含「奇函数」",
+            "答案/过程含「偶函数」",
+            "题干含「奇偶性」",
+            "答案/过程含「对称」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q003",
+      "source_file": "sample_questions.md",
+      "question_text": "已知等差数列 $\\{a_n\\}$ 中，$a_1 = 2$，$a_3 = 8$，求通项公式 $a_n$。",
+      "latex": [
+        "\\{a_n\\}",
+        "a_1 = 2",
+        "a_3 = 8",
+        "a_n",
+        "d",
+        "a_3 = a_1 + 2d = 8",
+        "d = 3",
+        "a_n = 2 + (n-1) \\times 3 = 3n - 1",
+        "a_n = 3n + 2"
+      ],
+      "options": [],
+      "standard_answer": "设公差为 $d$，$a_3 = a_1 + 2d = 8$，解得 $d = 3$，故 $a_n = 2 + (n-1) \\times 3 = 3n - 1$。",
+      "student_answer": "$a_n = 3n + 2$。",
+      "student_solution": "算出 $d = 3$ 之后，直接写成 $a_n = 3n + 2$。",
+      "student_note": "公差求对了，最后通项写错。",
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "sequences",
+          "knowledge_point_name": "数列",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「等差数列」",
+            "题干含「通项」",
+            "题干含「数列」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q004",
+      "source_file": "sample_questions.md",
+      "question_text": "函数 $f(x) = \\ln(x^2 - 3x + 2)$ 的定义域是什么？",
+      "latex": [
+        "f(x) = \\ln(x^2 - 3x + 2)",
+        "x^2 - 3x + 2 > 0",
+        "x < 1",
+        "x > 2",
+        "(-\\infty, 1) \\cup (2, +\\infty)"
+      ],
+      "options": [],
+      "standard_answer": "令 $x^2 - 3x + 2 > 0$，解得 $x < 1$ 或 $x > 2$，定义域为 $(-\\infty, 1) \\cup (2, +\\infty)$。",
+      "student_answer": "$x < 1$ 或 $x > 2$。",
+      "student_solution": "对数里面要大于 0，解了一元二次不等式。",
+      "student_note": null,
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "题干含「定义域」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q005",
+      "source_file": "sample_questions.md",
+      "question_text": "利用导数求函数 $f(x) = x^3 - 3x$ 在区间 $[-2, 2]$ 上的最大值与最小值。",
+      "latex": [
+        "f(x) = x^3 - 3x",
+        "[-2, 2]",
+        "f'(x) = 3x^2 - 3 = 0",
+        "x = \\pm 1",
+        "f(-2) = -2",
+        "f(-1) = 2",
+        "f(1) = -2",
+        "f(2) = 2"
+      ],
+      "options": [],
+      "standard_answer": "$f'(x) = 3x^2 - 3 = 0$ 得 $x = \\pm 1$。计算得 $f(-2) = -2$，$f(-1) = 2$，$f(1) = -2$，$f(2) = 2$。比较得最大值为 2，最小值为 -2。",
+      "student_answer": null,
+      "student_solution": null,
+      "student_note": "学生只抄录了题目，未提供作答内容。",
+      "ocr_confidence": null,
+      "recognition_issues": [
+        "学生标记为「（无）」，按未提供处理"
+      ],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "function-basics",
+          "knowledge_point_name": "函数概念与表示",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「函数」",
+            "题干含「f(x)」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        },
+        {
+          "knowledge_point_id": "derivative-concept",
+          "knowledge_point_name": "导数概念与几何意义",
+          "relevance_type": "辅助考点",
+          "evidence": [
+            "题干含「导数」"
+          ],
+          "confidence": "低",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true,
+        "note": "未提供学生答案/解题过程，本模块不判断该学生的具体错误；以下内容仅为该题的一般性易错点，不是已发生的错误。"
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    },
+    {
+      "question_id": "Q006",
+      "source_file": "sample_questions.md",
+      "question_text": "求 $\\sin 30^\\circ + \\cos 60^\\circ$ 的值。",
+      "latex": [
+        "\\sin 30^\\circ + \\cos 60^\\circ",
+        "\\sin 30^\\circ = \\frac{1}{2}",
+        "\\cos 60^\\circ = \\frac{1}{2}",
+        "\\cos 60^\\circ",
+        "\\frac{\\sqrt{3}}{2}"
+      ],
+      "options": [],
+      "standard_answer": "$\\sin 30^\\circ = \\frac{1}{2}$，$\\cos 60^\\circ = \\frac{1}{2}$，和为 1。",
+      "student_answer": "$\\frac{\\sqrt{3}}{2}$。",
+      "student_solution": "记错公式，把 $\\cos 60^\\circ$ 当成了 $\\frac{\\sqrt{3}}{2}$。",
+      "student_note": null,
+      "ocr_confidence": null,
+      "recognition_issues": [],
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "trigonometry",
+          "knowledge_point_name": "三角函数",
+          "relevance_type": "主要考点",
+          "evidence": [
+            "题干含「sin」",
+            "题干含「cos」"
+          ],
+          "confidence": "中",
+          "verification_status": "待确认",
+          "source": "program-keyword"
+        }
+      ],
+      "error_analysis": {
+        "observed_error": null,
+        "suspected_causes": [
+          "暂无法判断"
+        ],
+        "evidence": [],
+        "confidence": "低",
+        "needs_confirmation": true
+      },
+      "difficulty": null,
+      "review_status": "pending"
+    }
+  ],
+  "priority": {
+    "meta": {
+      "model": "rule-based-weighted-sum",
+      "weights": {
+        "wrong_frequency": 0.25,
+        "recency_repeat": 0.2,
+        "error_severity": 0.2,
+        "prerequisite_impact": 0.2,
+        "retest_gap": 0.15
+      },
+      "normalization": "各指标均已归一到 [0,1]：频率=错题数/总题数；重复=min(1,(n-1)/2)；严重度=错因严重度映射均值；先修影响=被依赖数/最大被依赖数（含前置缺口加成）；复测差距缺失时取保守值。",
+      "generated_at": "2026-10-17T20:55:06"
+    },
+    "global": {
+      "total_questions": 6,
+      "knowledge_point_count": 6,
+      "missing_data_notes": [
+        "未提供复测数据 → 掌握程度全部标记为「未知」，retest_gap 为保守估算值。",
+        "未提供错因标注的题目 → error_severity 标记 missing，按保守值估算。"
+      ]
+    },
+    "knowledge_points": [
+      {
+        "knowledge_point_id": "function-basics",
+        "knowledge_point_name": "函数概念与表示",
+        "wrong_count": 4,
+        "question_ids": [
+          "Q001",
+          "Q002",
+          "Q004",
+          "Q005"
+        ],
+        "metrics": {
+          "wrong_frequency": {
+            "value": 0.6667,
+            "source": "observed"
+          },
+          "recency_repeat": {
+            "value": 1.0,
+            "source": "observed",
+            "rule": "错题数≥2 时取 min(1,(n-1)/2)，无时间字段"
+          },
+          "error_severity": {
+            "value": 0.5,
+            "source": "missing"
+          },
+          "prerequisite_impact": {
+            "value": 1.0,
+            "source": "observed",
+            "detail": {
+              "required_by_count": 6,
+              "prerequisite_gap": 0.0
+            }
+          },
+          "retest_gap": {
+            "value": 0.5,
+            "source": "missing",
+            "note": "无复测数据，按保守值估算"
+          }
+        },
+        "mastery": {
+          "value": null,
+          "status": "未知",
+          "note": "未提供复测/测评数据，掌握程度未知；上述分数不代表真实掌握率。"
+        },
+        "priority": 0.7417,
+        "status": "unknown",
+        "depends_on": [],
+        "required_by": [
+          "limit",
+          "monotonicity",
+          "parity",
+          "plane-geometry",
+          "sequences",
+          "trigonometry"
+        ]
+      },
+      {
+        "knowledge_point_id": "parity",
+        "knowledge_point_name": "函数奇偶性",
+        "wrong_count": 1,
+        "question_ids": [
+          "Q002"
+        ],
+        "metrics": {
+          "wrong_frequency": {
+            "value": 0.1667,
+            "source": "observed"
+          },
+          "recency_repeat": {
+            "value": 0.0,
+            "source": "observed",
+            "rule": "错题数≥2 时取 min(1,(n-1)/2)，无时间字段"
+          },
+          "error_severity": {
+            "value": 0.5,
+            "source": "missing"
+          },
+          "prerequisite_impact": {
+            "value": 0.5,
+            "source": "observed",
+            "detail": {
+              "required_by_count": 0,
+              "prerequisite_gap": 1.0
+            }
+          },
+          "retest_gap": {
+            "value": 0.5,
+            "source": "missing",
+            "note": "无复测数据，按保守值估算"
+          }
+        },
+        "mastery": {
+          "value": null,
+          "status": "未知",
+          "note": "未提供复测/测评数据，掌握程度未知；上述分数不代表真实掌握率。"
+        },
+        "priority": 0.3167,
+        "status": "unknown",
+        "depends_on": [
+          "function-basics"
+        ],
+        "required_by": []
+      },
+      {
+        "knowledge_point_id": "sequences",
+        "knowledge_point_name": "数列",
+        "wrong_count": 1,
+        "question_ids": [
+          "Q003"
+        ],
+        "metrics": {
+          "wrong_frequency": {
+            "value": 0.1667,
+            "source": "observed"
+          },
+          "recency_repeat": {
+            "value": 0.0,
+            "source": "observed",
+            "rule": "错题数≥2 时取 min(1,(n-1)/2)，无时间字段"
+          },
+          "error_severity": {
+            "value": 0.5,
+            "source": "missing"
+          },
+          "prerequisite_impact": {
+            "value": 0.5,
+            "source": "observed",
+            "detail": {
+              "required_by_count": 0,
+              "prerequisite_gap": 1.0
+            }
+          },
+          "retest_gap": {
+            "value": 0.5,
+            "source": "missing",
+            "note": "无复测数据，按保守值估算"
+          }
+        },
+        "mastery": {
+          "value": null,
+          "status": "未知",
+          "note": "未提供复测/测评数据，掌握程度未知；上述分数不代表真实掌握率。"
+        },
+        "priority": 0.3167,
+        "status": "unknown",
+        "depends_on": [
+          "function-basics"
+        ],
+        "required_by": []
+      },
+      {
+        "knowledge_point_id": "trigonometry",
+        "knowledge_point_name": "三角函数",
+        "wrong_count": 1,
+        "question_ids": [
+          "Q006"
+        ],
+        "metrics": {
+          "wrong_frequency": {
+            "value": 0.1667,
+            "source": "observed"
+          },
+          "recency_repeat": {
+            "value": 0.0,
+            "source": "observed",
+            "rule": "错题数≥2 时取 min(1,(n-1)/2)，无时间字段"
+          },
+          "error_severity": {
+            "value": 0.5,
+            "source": "missing"
+          },
+          "prerequisite_impact": {
+            "value": 0.5,
+            "source": "observed",
+            "detail": {
+              "required_by_count": 0,
+              "prerequisite_gap": 1.0
+            }
+          },
+          "retest_gap": {
+            "value": 0.5,
+            "source": "missing",
+            "note": "无复测数据，按保守值估算"
+          }
+        },
+        "mastery": {
+          "value": null,
+          "status": "未知",
+          "note": "未提供复测/测评数据，掌握程度未知；上述分数不代表真实掌握率。"
+        },
+        "priority": 0.3167,
+        "status": "unknown",
+        "depends_on": [
+          "function-basics"
+        ],
+        "required_by": []
+      },
+      {
+        "knowledge_point_id": "derivative-concept",
+        "knowledge_point_name": "导数概念与几何意义",
+        "wrong_count": 1,
+        "question_ids": [
+          "Q005"
+        ],
+        "metrics": {
+          "wrong_frequency": {
+            "value": 0.1667,
+            "source": "observed"
+          },
+          "recency_repeat": {
+            "value": 0.0,
+            "source": "observed",
+            "rule": "错题数≥2 时取 min(1,(n-1)/2)，无时间字段"
+          },
+          "error_severity": {
+            "value": 0.5,
+            "source": "missing"
+          },
+          "prerequisite_impact": {
+            "value": 0.1667,
+            "source": "observed",
+            "detail": {
+              "required_by_count": 1,
+              "prerequisite_gap": 0.0
+            }
+          },
+          "retest_gap": {
+            "value": 0.5,
+            "source": "missing",
+            "note": "无复测数据，按保守值估算"
+          }
+        },
+        "mastery": {
+          "value": null,
+          "status": "未知",
+          "note": "未提供复测/测评数据，掌握程度未知；上述分数不代表真实掌握率。"
+        },
+        "priority": 0.25,
+        "status": "unknown",
+        "depends_on": [
+          "limit"
+        ],
+        "required_by": [
+          "derivative-operations"
+        ]
+      },
+      {
+        "knowledge_point_id": "derivative-extremum",
+        "knowledge_point_name": "导数与函数极值最值",
+        "wrong_count": 1,
+        "question_ids": [
+          "Q001"
+        ],
+        "metrics": {
+          "wrong_frequency": {
+            "value": 0.1667,
+            "source": "observed"
+          },
+          "recency_repeat": {
+            "value": 0.0,
+            "source": "observed",
+            "rule": "错题数≥2 时取 min(1,(n-1)/2)，无时间字段"
+          },
+          "error_severity": {
+            "value": 0.5,
+            "source": "missing"
+          },
+          "prerequisite_impact": {
+            "value": 0.0,
+            "source": "observed",
+            "detail": {
+              "required_by_count": 0,
+              "prerequisite_gap": 0.0
+            }
+          },
+          "retest_gap": {
+            "value": 0.5,
+            "source": "missing",
+            "note": "无复测数据，按保守值估算"
+          }
+        },
+        "mastery": {
+          "value": null,
+          "status": "未知",
+          "note": "未提供复测/测评数据，掌握程度未知；上述分数不代表真实掌握率。"
+        },
+        "priority": 0.2167,
+        "status": "unknown",
+        "depends_on": [
+          "derivative-operations",
+          "monotonicity"
+        ],
+        "required_by": []
+      }
+    ]
+  },
+  "study_plan": {
+    "meta": {
+      "days": 7,
+      "daily_minutes": 60,
+      "budget_per_day": 54,
+      "reserve_ratio": 0.9,
+      "retest_interval_days": 3,
+      "generated_at": "2026-10-17T20:55:06",
+      "note": "无复测反馈数据，间隔按保守值安排；掌握良好后可适当延长间隔。"
+    },
+    "days": [
+      {
+        "day": 1,
+        "theme": "基础薄弱点突破",
+        "goals": [
+          "突破知识点：函数概念与表示",
+          "完成理论回顾与错题重做"
+        ],
+        "knowledge_points": [
+          "函数概念与表示"
+        ],
+        "tasks": [
+          {
+            "type": "theory",
+            "title": "理论回顾：函数概念与表示",
+            "description": "复习「函数概念与表示」的定义、核心公式与常见易错点（关联错题：Q001、Q002、Q004、Q005）。先合上书回忆，再对照笔记查漏。",
+            "minutes": 15,
+            "completion_criteria": "能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。",
+            "review_method": "在白纸上默写知识点框架，卡住的步骤做标记，第二天复测时优先回顾。"
+          },
+          {
+            "type": "practice",
+            "title": "练习巩固：函数概念与表示",
+            "description": "重做错题 Q001、Q002、Q004、Q005，再做 1-2 道同类变式题；每道题完整写出解题步骤，不跳步。",
+            "minutes": 30,
+            "completion_criteria": "独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。",
+            "review_method": "对比标准答案，逐步标记差异点；仍不会的步骤写入「待解决问题清单」。"
+          }
+        ],
+        "total_minutes": 45,
+        "budget_minutes": 54
+      },
+      {
+        "day": 2,
+        "theme": "巩固提升与变式练习",
+        "goals": [
+          "突破知识点：导数与函数极值最值",
+          "完成理论回顾与错题重做"
+        ],
+        "knowledge_points": [
+          "导数与函数极值最值"
+        ],
+        "tasks": [
+          {
+            "type": "theory",
+            "title": "理论回顾：导数与函数极值最值",
+            "description": "复习「导数与函数极值最值」的定义、核心公式与常见易错点（关联错题：Q001）。先合上书回忆，再对照笔记查漏。",
+            "minutes": 15,
+            "completion_criteria": "能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。",
+            "review_method": "在白纸上默写知识点框架，卡住的步骤做标记，第二天复测时优先回顾。"
+          },
+          {
+            "type": "practice",
+            "title": "练习巩固：导数与函数极值最值",
+            "description": "重做错题 Q001，再做 1-2 道同类变式题；每道题完整写出解题步骤，不跳步。",
+            "minutes": 30,
+            "completion_criteria": "独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。",
+            "review_method": "对比标准答案，逐步标记差异点；仍不会的步骤写入「待解决问题清单」。"
+          }
+        ],
+        "total_minutes": 45,
+        "budget_minutes": 54
+      },
+      {
+        "day": 3,
+        "theme": "巩固提升与变式练习",
+        "goals": [
+          "突破知识点：函数奇偶性",
+          "完成理论回顾与错题重做"
+        ],
+        "knowledge_points": [
+          "函数奇偶性"
+        ],
+        "tasks": [
+          {
+            "type": "theory",
+            "title": "理论回顾：函数奇偶性",
+            "description": "复习「函数奇偶性」的定义、核心公式与常见易错点（关联错题：Q002）。先合上书回忆，再对照笔记查漏。",
+            "minutes": 15,
+            "completion_criteria": "能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。",
+            "review_method": "在白纸上默写知识点框架，卡住的步骤做标记，第二天复测时优先回顾。"
+          },
+          {
+            "type": "practice",
+            "title": "练习巩固：函数奇偶性",
+            "description": "重做错题 Q002，再做 1-2 道同类变式题；每道题完整写出解题步骤，不跳步。",
+            "minutes": 30,
+            "completion_criteria": "独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。",
+            "review_method": "对比标准答案，逐步标记差异点；仍不会的步骤写入「待解决问题清单」。"
+          }
+        ],
+        "total_minutes": 45,
+        "budget_minutes": 54
+      },
+      {
+        "day": 4,
+        "theme": "复测检验",
+        "goals": [
+          "复测前期内容（函数概念与表示、导数与函数极值最值）",
+          "标记真正掌握与仍需巩固的知识点"
+        ],
+        "knowledge_points": [
+          "函数概念与表示",
+          "导数与函数极值最值"
+        ],
+        "tasks": [
+          {
+            "type": "retest",
+            "title": "复测：函数概念与表示",
+            "description": "在不看资料的情况下重做此前「函数概念与表示」相关错题，检验是否真正掌握。",
+            "minutes": 20,
+            "completion_criteria": "错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。",
+            "review_method": "记录复测结果（正确/部分正确/错误），作为下次调整复习间隔的依据。"
+          },
+          {
+            "type": "retest",
+            "title": "复测：导数与函数极值最值",
+            "description": "在不看资料的情况下重做此前「导数与函数极值最值」相关错题，检验是否真正掌握。",
+            "minutes": 20,
+            "completion_criteria": "错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。",
+            "review_method": "记录复测结果（正确/部分正确/错误），作为下次调整复习间隔的依据。"
+          }
+        ],
+        "total_minutes": 40,
+        "budget_minutes": 54
+      },
+      {
+        "day": 5,
+        "theme": "巩固提升与变式练习",
+        "goals": [
+          "突破知识点：数列",
+          "完成理论回顾与错题重做"
+        ],
+        "knowledge_points": [
+          "数列"
+        ],
+        "tasks": [
+          {
+            "type": "theory",
+            "title": "理论回顾：数列",
+            "description": "复习「数列」的定义、核心公式与常见易错点（关联错题：Q003）。先合上书回忆，再对照笔记查漏。",
+            "minutes": 15,
+            "completion_criteria": "能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。",
+            "review_method": "在白纸上默写知识点框架，卡住的步骤做标记，第二天复测时优先回顾。"
+          },
+          {
+            "type": "practice",
+            "title": "练习巩固：数列",
+            "description": "重做错题 Q003，再做 1-2 道同类变式题；每道题完整写出解题步骤，不跳步。",
+            "minutes": 30,
+            "completion_criteria": "独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。",
+            "review_method": "对比标准答案，逐步标记差异点；仍不会的步骤写入「待解决问题清单」。"
+          }
+        ],
+        "total_minutes": 45,
+        "budget_minutes": 54
+      },
+      {
+        "day": 6,
+        "theme": "巩固提升与变式练习",
+        "goals": [
+          "突破知识点：导数概念与几何意义",
+          "完成理论回顾与错题重做"
+        ],
+        "knowledge_points": [
+          "导数概念与几何意义"
+        ],
+        "tasks": [
+          {
+            "type": "theory",
+            "title": "理论回顾：导数概念与几何意义",
+            "description": "复习「导数概念与几何意义」的定义、核心公式与常见易错点（关联错题：Q005）。先合上书回忆，再对照笔记查漏。",
+            "minutes": 15,
+            "completion_criteria": "能不看资料写出该知识点的定义、公式，并说出至少 2 个易错点。",
+            "review_method": "在白纸上默写知识点框架，卡住的步骤做标记，第二天复测时优先回顾。"
+          },
+          {
+            "type": "practice",
+            "title": "练习巩固：导数概念与几何意义",
+            "description": "重做错题 Q005，再做 1-2 道同类变式题；每道题完整写出解题步骤，不跳步。",
+            "minutes": 30,
+            "completion_criteria": "独立完成错题重做且步骤完整；变式题错误能定位到具体步骤。",
+            "review_method": "对比标准答案，逐步标记差异点；仍不会的步骤写入「待解决问题清单」。"
+          }
+        ],
+        "total_minutes": 45,
+        "budget_minutes": 54
+      },
+      {
+        "day": 7,
+        "theme": "总复盘与查漏补缺",
+        "goals": [
+          "复盘全部薄弱知识点（函数奇偶性、数列）",
+          "整理仍未解决的问题清单"
+        ],
+        "knowledge_points": [
+          "函数奇偶性",
+          "数列"
+        ],
+        "tasks": [
+          {
+            "type": "retest",
+            "title": "复测：函数奇偶性",
+            "description": "在不看资料的情况下重做此前「函数奇偶性」相关错题，检验是否真正掌握。",
+            "minutes": 20,
+            "completion_criteria": "错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。",
+            "review_method": "记录复测结果（正确/部分正确/错误），作为下次调整复习间隔的依据。"
+          },
+          {
+            "type": "retest",
+            "title": "复测：数列",
+            "description": "在不看资料的情况下重做此前「数列」相关错题，检验是否真正掌握。",
+            "minutes": 20,
+            "completion_criteria": "错题重做正确且能说出当时错误的原因；未掌握的回到该知识点的先修内容。",
+            "review_method": "记录复测结果（正确/部分正确/错误），作为下次调整复习间隔的依据。"
+          }
+        ],
+        "total_minutes": 40,
+        "budget_minutes": 54
+      }
+    ],
+    "dropped_tasks": [
+      {
+        "title": "理论回顾：三角函数",
+        "minutes": 15,
+        "reason": "每日时间预算不足，未能排入计划"
+      },
+      {
+        "title": "练习巩固：三角函数",
+        "minutes": 30,
+        "reason": "每日时间预算不足，未能排入计划"
+      }
+    ],
+    "warnings": [
+      "时间预算不足：2 个任务未能排入 7 天计划。建议增加每日学习时间、延长复习周期，或减少练习量。",
+      "以下知识点本次计划未覆盖：三角函数（时间预算限制）。"
+    ]
+  }
+}

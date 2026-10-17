@@ -1,0 +1,218 @@
+# {{ title }}
+
+> 生成时间：{{ generated_at }}　|　学科：{{ meta.subject or "未提供" }}　|　数据来源文件：{{ meta.source_file or "未提供" }}
+>
+> 本报告由智能错题分析 Skill 自动生成。凡未提供的数据均如实标注「未知/未提供」，推测内容均标注「推测」。
+
+---
+
+## 一、报告基本信息
+
+| 项目 | 内容 |
+| --- | --- |
+| 学科 | {{ meta.subject or "未提供（使用默认分析）" }} |
+| 题目来源 | {{ meta.source_file or "未提供" }} |
+| 题目总数 | {{ overview.total }} |
+| 含学生作答数据 | {{ overview.with_student_data }} 题 |
+| 无学生作答数据 | {{ overview.without_student_data }} 题 |
+| 含公式题目 | {{ overview.with_formula }} 题 |
+| 知识点匹配成功 | {{ overview.knowledge_matched }} 题 |
+| 知识点未匹配 | {{ overview.knowledge_unmatched }} 题 |
+| 报告生成时间 | {{ generated_at }} |
+
+## 二、错题整体概览
+
+{% if overview.recognition_issues %}
+**识别问题提示（需人工核验）：**
+
+{% for issue in overview.recognition_issues %}
+- {{ issue }}
+{% endfor %}
+{% else %}
+所有题目识别完整，无待核验问题。
+{% endif %}
+
+**学生作答数据覆盖情况：**
+
+- 有学生答案/解题过程：{{ overview.with_student_data }} 题 —— 可进行具体错因分析。
+- 无学生作答数据：{{ overview.without_student_data }} 题 —— 仅能分析一般性易错点，**不判断该学生的具体错误**。
+
+## 三、主要薄弱知识点
+
+{% if priority_points %}
+按规则评分模型排序（分数越高越优先复习）：
+
+| 排名 | 知识点 | 错题数 | 优先级 | 关联错题 | 掌握程度 |
+| --- | --- | --- | --- | --- | --- |
+{% for kp in priority_points %}
+| {{ loop.index }} | {{ kp.knowledge_point_name }} | {{ kp.wrong_count }} | {{ "%.2f"|format(kp.priority) }} | {{ kp.question_ids|join("、") }} | {{ kp.mastery.status }} |
+{% endfor %}
+
+**优先级指标明细（数值与来源）：**
+
+| 知识点 | 错题频率 | 近期重复 | 错因严重度 | 先修影响 | 复测差距 |
+| --- | --- | --- | --- | --- | --- |
+{% for kp in priority_points %}
+{% set m = kp.metrics %}
+| {{ kp.knowledge_point_name }} | {{ "%.2f"|format(m.wrong_frequency.value) }}（{{ m.wrong_frequency.source }}） | {{ "%.2f"|format(m.recency_repeat.value) }}（{{ m.recency_repeat.source }}） | {{ "%.2f"|format(m.error_severity.value) }}（{{ m.error_severity.source }}） | {{ "%.2f"|format(m.prerequisite_impact.value) }}（{{ m.prerequisite_impact.source }}） | {{ "%.2f"|format(m.retest_gap.value) }}（{{ m.retest_gap.source }}） |
+{% endfor %}
+
+> 指标来源说明：`observed` = 实际记录值；`missing` = 数据缺失，按保守值估算。归一化方式见「数据来源与不确定性说明」。
+{% else %}
+未能计算优先级：题目未匹配到任何知识点。
+{% endif %}
+
+## 四、错题明细表
+
+| 题号 | 学科相关 | 题干（摘要） | 标准答案 | 学生答案 | 状态 |
+| --- | --- | --- | --- | --- | --- |
+{% for q in questions %}
+{% set kps = q.knowledge_points|map(attribute="knowledge_point_name")|join("、") %}
+{% set qtext = (q.question_text or "")|replace("\n", " ")|truncate(60, True, "…") %}
+{% set sans = (q.standard_answer or "未提供")|replace("\n", " ")|truncate(40, True, "…") %}
+{% set stuans = (q.student_answer or "未提供")|replace("\n", " ")|truncate(40, True, "…") %}
+{% set status = "已完成" if q.review_status == "done" else "待复习" %}
+| {{ q.question_id }} | {{ kps or "未匹配" }} | {{ qtext }} | {{ sans }} | {{ stuans }} | {{ status }} |
+{% endfor %}
+
+## 五、错因分析及证据
+
+{% for q in questions %}
+### {{ q.question_id }}　{% if q.question_text %}{{ q.question_text|replace("\n", " ")|truncate(50, True, "…") }}{% endif %}
+
+{% set ea = q.error_analysis %}
+{% if ea.observed_error %}
+- **可观察到的错误**：{{ ea.observed_error }}
+{% else %}
+- **可观察到的错误**：无（未提供学生作答数据，或作答正确）
+{% endif %}
+
+- **推测原因**：{% if ea.suspected_causes %}{{ ea.suspected_causes|join("；") }}{% else %}暂无法判断{% endif %}
+
+- **判断依据**：{% if ea.evidence %}{{ ea.evidence|join("；") }}{% else %}证据不足{% endif %}
+
+- **置信度**：{{ ea.confidence or "低" }}
+
+- **是否需用户确认**：{{ "是" if ea.needs_confirmation else "否" }}
+{% if ea.note %}
+
+> ⚠️ {{ ea.note }}
+{% endif %}
+{% if q.latex %}
+
+- **题目公式**（LaTeX 源码，共 {{ q.latex|length }} 个）：
+{% for f in q.latex %}
+  - `${{ f }}$`
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+
+## 六、知识依赖图
+
+![知识依赖图]({{ graph_assets.knowledge_graph_png }})
+
+（矢量版本：[knowledge-graph.svg]({{ graph_assets.knowledge_graph_svg }})）
+
+- 箭头方向：先修知识 → 后续知识。
+- 节点内数字：错题数量；节点大小随错题数增大。
+- 颜色：红色 = 多次出错，橙色 = 出错 1 次，灰色 = 先修知识（本批错题未涉及）。
+- 本报告未提供复测数据，**掌握程度为「未知」**，颜色仅表示出错频次。
+
+## 七、题型地图
+
+![题型地图]({{ graph_assets.topic_map_png }})
+
+（矢量版本：[topic-map.svg]({{ graph_assets.topic_map_svg }})）
+
+- 每个分组对应一类题型（按主要考点聚类）。
+- 优先级来自规则评分模型；易错环节来自知识点库登记。
+- 解题步骤骨架由分析 Agent 按实际课程内容补充核验，不使用通用模板冒充。
+
+## 八、{% if study_plan %}{{ study_plan.meta.days }} 天个性化复习计划{% else %}复习计划（未生成）{% endif %}
+
+{% if study_plan %}
+**时间预算**：每日可用 {{ study_plan.meta.daily_minutes }} 分钟 × 安全系数 {{ study_plan.meta.reserve_ratio }} = 每日任务上限 {{ study_plan.meta.budget_per_day }} 分钟。复测间隔：每 {{ study_plan.meta.retest_interval_days }} 天（保守安排，无复测反馈数据）。
+
+{% for day in study_plan.days %}
+### 第 {{ day.day }} 天：{{ day.theme }}
+
+**当日目标**：
+{% for goal in day.goals %}
+- {{ goal }}
+{% endfor %}
+
+| 任务 | 类型 | 内容 | 用时 | 完成标准 |
+| --- | --- | --- | --- | --- |
+{% for t in day.tasks %}
+| {{ t.title }} | {{ t.type }} | {{ t.description }} | {{ t.minutes }} 分钟 | {{ t.completion_criteria }} |
+{% endfor %}
+
+**当日合计 {{ day.total_minutes }} / {{ day.budget_minutes }} 分钟**
+
+{% if day.tasks %}
+**复盘方式**：
+
+{% for t in day.tasks %}
+{{ loop.index }}. {{ t.review_method }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% if study_plan.dropped_tasks %}
+**未能排入计划的任务**（时间预算不足）：
+
+| 任务 | 原计划用时 | 原因 |
+| --- | --- | --- |
+{% for t in study_plan.dropped_tasks %}
+| {{ t.title }} | {{ t.minutes }} 分钟 | {{ t.reason }} |
+{% endfor %}
+{% endif %}
+{% if study_plan.warnings %}
+**计划说明**：
+{% for w in study_plan.warnings %}
+- {{ w }}
+{% endfor %}
+{% endif %}
+{% else %}
+复习计划未生成（缺少题目数据或知识点匹配失败）。
+{% endif %}
+
+## 九、复测记录
+
+当前未提供复测/测评数据。复测记录表待用户完成计划中的复测任务后补充。
+
+| 日期 | 知识点 | 复测结果 | 正确/部分正确/错误 | 后续调整 |
+| --- | --- | --- | --- | --- |
+| （待补充） | （待补充） | （待补充） | （待补充） | （待补充） |
+
+> 掌握良好 → 适当延长复习间隔；部分掌握 → 保持练习并安排复测；多次出错 → 回到先修知识；缺少反馈 → 维持保守安排。
+
+## 十、后续学习建议
+
+1. **先修优先**：优先复习「先修影响」指标高的基础薄弱点，再进入综合题与变式题。
+2. **关注错因而非题量**：每道错题定位到具体错误步骤，记录「错在哪、为什么错、下次怎么检查」。
+3. **补测掌握程度**：完成首轮复测后更新复测记录，系统可据此调整优先级与复习间隔。
+4. **扩展知识库**：若题目未匹配到知识点（见概览），请在知识点库中补充对应条目。
+5. **周期回顾**：每完成一个 7 天计划，重新运行分析，对比优先级变化。
+
+## 十一、数据来源与不确定性说明
+
+**数据来源**：
+- 题目内容：{{ meta.source_file or "用户上传文件" }}（程序提取 + Agent 识别）。
+- 知识点归属：知识点库关键词匹配（启发式，标记「待确认」）+ Agent 语义标注。
+- 依赖关系：知识点库已核验的先修关系；模型推断的关系一律标记「待验证」。
+- 优先级：规则加权模型，权重见配置文件，全部输入指标可解释。
+
+**归一化方式**：{{ priority_meta.normalization or "各指标归一到 [0,1] 后加权求和。" }}
+
+**不确定性声明**：
+{% for note in global_notes %}
+- {{ note }}
+{% endfor %}
+- 模型置信度不等于真实准确率；所有「推测」内容未经学生本人确认前不得作为结论。
+- 未提供学生作答数据的题目，其分析仅为该题的一般性易错点，**不是该学生已发生的错误**。
+
+---
+
+*本报告由智能错题分析 Skill 生成。如对识别结果有疑问，请以原始试卷为准。*

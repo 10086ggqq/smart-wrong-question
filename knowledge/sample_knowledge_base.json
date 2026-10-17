@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "name": "高中数学示例知识点库",
+    "subject": "数学",
+    "version": "1.0.0",
+    "description": "示例知识库，覆盖高中代数与函数主线。新增学科可复制本文件并按同样结构扩展。",
+    "dependency_verification": "库内 prerequisite 关系依据主流教材章节顺序整理，模型推断的新关系必须标记待验证。"
+  },
+  "knowledge_points": [
+    {
+      "id": "function-basics",
+      "name": "函数概念与表示",
+      "subject": "数学",
+      "keywords": ["函数", "定义域", "值域", "对应关系", "f(x)", "图象"],
+      "prerequisites": [],
+      "common_error_types": ["概念理解不清", "审题不充分"],
+      "typical_topics": ["求定义域值域", "函数图象识别"],
+      "notes": "后续多数函数主题的先修基础。"
+    },
+    {
+      "id": "monotonicity",
+      "name": "函数单调性",
+      "subject": "数学",
+      "keywords": ["单调", "增函数", "减函数", "递增", "递减", "单调区间"],
+      "prerequisites": ["function-basics"],
+      "common_error_types": ["概念理解不清", "解题步骤不完整"],
+      "typical_topics": ["证明单调性", "求单调区间"],
+      "notes": "定义法证明与导数法的衔接点。"
+    },
+    {
+      "id": "parity",
+      "name": "函数奇偶性",
+      "subject": "数学",
+      "keywords": ["奇函数", "偶函数", "奇偶性", "对称"],
+      "prerequisites": ["function-basics"],
+      "common_error_types": ["概念理解不清", "审题不充分"],
+      "typical_topics": ["判断奇偶性", "利用奇偶性化简"],
+      "notes": "判断前必须先验证定义域关于原点对称。"
+    },
+    {
+      "id": "limit",
+      "name": "极限初步",
+      "subject": "数学",
+      "keywords": ["极限", "lim", "趋近于", "无穷"],
+      "prerequisites": ["function-basics"],
+      "common_error_types": ["概念理解不清", "公式或定理使用错误"],
+      "typical_topics": ["求数列极限"],
+      "notes": "导数的概念基础之一。"
+    },
+    {
+      "id": "derivative-concept",
+      "name": "导数概念与几何意义",
+      "subject": "数学",
+      "keywords": ["导数", "瞬时变化率", "切线", "斜率"],
+      "prerequisites": ["limit"],
+      "common_error_types": ["概念理解不清", "公式或定理使用错误"],
+      "typical_topics": ["求切线方程", "导数定义题"],
+      "notes": "导数定义与切线斜率的对应是高频易错点。"
+    },
+    {
+      "id": "derivative-operations",
+      "name": "导数运算",
+      "subject": "数学",
+      "keywords": ["求导", "导数运算", "四则运算", "复合函数求导", "链式法则"],
+      "prerequisites": ["derivative-concept"],
+      "common_error_types": ["计算或推导错误", "公式或定理使用错误"],
+      "typical_topics": ["基本函数求导", "复合函数求导"],
+      "notes": "链式法则漏层是常见计算错误。"
+    },
+    {
+      "id": "derivative-extremum",
+      "name": "导数与函数极值最值",
+      "subject": "数学",
+      "keywords": ["极值", "极大值", "极小值", "最值", "驻点", "临界点", "导数符号"],
+      "prerequisites": ["derivative-operations", "monotonicity"],
+      "common_error_types": ["概念理解不清", "解题步骤不完整", "审题不充分"],
+      "typical_topics": ["利用导数求极值", "利用导数求最值", "含参讨论"],
+      "notes": "高频考点：导数为零不等于极值；需检查定义域与端点。"
+    },
+    {
+      "id": "trigonometry",
+      "name": "三角函数",
+      "subject": "数学",
+      "keywords": ["sin", "cos", "tan", "正弦", "余弦", "正切", "周期"],
+      "prerequisites": ["function-basics"],
+      "common_error_types": ["公式或定理使用错误", "计算或推导错误"],
+      "typical_topics": ["化简求值", "图象与性质"],
+      "notes": "公式记忆混淆是主要错因。"
+    },
+    {
+      "id": "plane-geometry",
+      "name": "平面解析几何",
+      "subject": "数学",
+      "keywords": ["直线方程", "圆", "椭圆", "距离公式", "斜率"],
+      "prerequisites": ["function-basics"],
+      "common_error_types": ["计算或推导错误", "审题不充分"],
+      "typical_topics": ["直线与圆位置关系", "椭圆性质"],
+      "notes": "代数运算量大，计算错误占比高。"
+    },
+    {
+      "id": "sequences",
+      "name": "数列",
+      "subject": "数学",
+      "keywords": ["等差数列", "等比数列", "通项", "前n项和", "数列"],
+      "prerequisites": ["function-basics"],
+      "common_error_types": ["公式或定理使用错误", "概念理解不清"],
+      "typical_topics": ["求通项公式", "求和"],
+      "notes": "等差等比判定是入口易错点。"
+    },
+    {
+      "id": "probability",
+      "name": "概率初步",
+      "subject": "数学",
+      "keywords": ["概率", "古典概型", "独立事件", "乘法公式"],
+      "prerequisites": [],
+      "common_error_types": ["概念理解不清", "审题不充分"],
+      "typical_topics": ["古典概型计算", "独立事件概率"],
+      "notes": "审题不清导致模型选错是主要错因。"
+    }
+  ]
+}

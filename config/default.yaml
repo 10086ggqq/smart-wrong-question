@@ -1,0 +1,73 @@
+# 智能错题分析 Skill 默认配置
+# 所有默认值均为明确标注的降级默认值，Agent 应向用户确认后覆盖。
+
+study:
+  default_days: 7                # 默认复习周期（天）
+  max_days: 14                   # 最大支持周期
+  default_daily_minutes: 60      # 默认每日可用学习时间（分钟）
+  min_task_minutes: 10           # 单任务最小时长（分钟）
+  task_granularity: 5            # 任务时长取整粒度（分钟）
+  reserve_ratio: 0.9             # 每日预算安全系数（留 10% 余量）
+
+priority:
+  # 规则评分权重（和为 1，可调）
+  weights:
+    wrong_frequency: 0.25        # 错题频率
+    recency_repeat: 0.20         # 近期重复出错
+    error_severity: 0.20         # 错因严重程度
+    prerequisite_impact: 0.20    # 先修影响（被后续知识点依赖的程度）
+    retest_gap: 0.15             # 复测差距（缺失时按保守值并标记）
+  # 错因严重程度映射（0~1）
+  severity_map:
+    概念理解不清: 1.0
+    公式或定理使用错误: 0.9
+    解题方法选择不当: 0.8
+    知识点之间联系不清: 0.8
+    计算或推导错误: 0.6
+    审题不充分: 0.5
+    解题步骤不完整: 0.4
+    暂无法判断: 0.5
+  missing_value_policy: conservative   # missing 指标处理：conservative=取中位偏保守值并标记
+  conservative_value: 0.5              # 保守默认值
+
+mastery:
+  # 无复测数据时的掌握程度估算规则（必须标记为估算）
+  no_data_mastery: null               # null=未知，不得伪装精确值
+  estimated_rule: "wrong_ratio_penalty"  # 估算规则名，写入报告说明
+
+graphs:
+  knowledge_graph:
+    filename_prefix: knowledge-graph
+    formats: [svg, png]
+    dpi: 150
+    weak_color_threshold: 0.4         # mastery < 0.4 视为薄弱（红）
+    medium_color_threshold: 0.7       # mastery < 0.7 为一般（橙），否则良好（绿）
+    node_base_size: 800               # 基础节点大小
+    max_label_length: 12              # 节点标签最大字符数（超出折行）
+  topic_map:
+    filename_prefix: topic-map
+    formats: [svg, png]
+    dpi: 150
+
+report:
+  markdown_filename: analysis.md
+  pdf_filename: analysis.pdf
+  data_filename: analysis-data.json
+  assets_subdir: assets
+  title: "智能错题分析报告"
+
+paths:
+  knowledge_base: knowledge/sample_knowledge_base.json
+  templates_dir: templates
+  fonts:  # PDF/图表中文字体候选（按优先级探测）
+    - "C:/Windows/Fonts/msyh.ttc"
+    - "C:/Windows/Fonts/msyhbd.ttc"
+    - "C:/Windows/Fonts/simhei.ttf"
+    - "C:/Windows/Fonts/simsun.ttc"
+    - "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+    - "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
+    - "/System/Library/Fonts/PingFang.ttc"
+
+logging:
+  level: INFO
+  mask_personal_info: true            # 日志中不输出学生姓名等个人信息
