@@ -22,7 +22,8 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import PROJECT_ROOT, SkillError, load_config, read_json, setup_logger, write_json
+from common import PROJECT_ROOT, InputError, SkillError, load_config, read_json, setup_logger, write_json
+from error_causes import format_error_causes, normalize_error_codes, primary_error_code
 
 VALID_ERROR_TYPES = {
     "概念理解不清", "公式或定理使用错误", "解题方法选择不当", "计算或推导错误",
@@ -99,16 +100,38 @@ def analyze_question(question: dict, kb: dict) -> list[dict[str, Any]]:
 
 
 def validate_error_analysis(question: dict, logger=None) -> dict[str, Any]:
-    """校验/补全错因分析结构，确保字段完整且不越界编造。"""
+    """校验/补全错因分析结构，确保字段完整且不越界编造。
+
+    v3.1.0 起错因为多选：`error_codes`（list[int]，1-5 任意组合）。
+    兼容旧版单选 `error_code`：仅含 error_code 时升级为 error_codes。
+    无法识别的代码不静默吞掉——记入 note 告知用户，并按可识别部分处理。
+    """
     ea = question.get("error_analysis") or {}
     observed = ea.get("observed_error")
     suspected = ea.get("suspected_causes") or []
     evidence = ea.get("evidence") or []
     has_student_data = bool(question.get("student_answer") or question.get("student_solution"))
 
+    # ---- v3.1.0 多选错因：解析/校验（含旧版 error_code 兼容升级） ----
+    raw_codes = ea.get("error_codes")
+    if raw_codes is None and ea.get("error_code") is not None:
+        raw_codes = ea.get("error_code")  # 旧版单选数据
+    codes: list[int] = []
+    code_note = ""
+    if raw_codes is not None:
+        try:
+            codes = normalize_error_codes(raw_codes, strict=True)
+        except InputError as e:
+            codes = normalize_error_codes(raw_codes, strict=False)
+            code_note = f"错因代码存在无法识别的值（{e}），已按可识别部分处理：{format_error_causes(codes)}"
+            if logger:
+                logger.warning("%s：%s", question.get("question_id", "?"), code_note)
+
     normalized: dict[str, Any] = {
         "observed_error": observed if observed else None,
         "suspected_causes": [c for c in suspected if c],
+        "error_codes": codes,
+        "error_code": primary_error_code(codes),  # 主错因（兼容旧版单选字段）
         "evidence": [e for e in evidence if e],
         "confidence": ea.get("confidence"),
         "needs_confirmation": bool(ea.get("needs_confirmation", True)),
@@ -125,6 +148,8 @@ def validate_error_analysis(question: dict, logger=None) -> dict[str, Any]:
         normalized["suspected_causes"] = ["暂无法判断"]
         if normalized["confidence"] is None:
             normalized["confidence"] = "低"
+    if code_note:
+        normalized["note"] = (normalized.get("note", "") + " " + code_note).strip()
     return normalized
 
 

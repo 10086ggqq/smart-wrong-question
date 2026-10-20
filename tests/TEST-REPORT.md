@@ -21,7 +21,7 @@
 ## 总体结果
 
 ```
-43 passed, 0 failed, 0 skipped, 0 xfail （耗时约 44 秒）
+94 passed, 0 failed, 0 skipped, 0 xfail （耗时约 42 秒）
 ```
 
 ## 分类明细
@@ -117,6 +117,19 @@
 | test_prerequisite_impact_uses_dependency_not_cooccurrence（先修影响来自依赖而非同现） | ✅ |
 | test_wrong_frequency_observed（频率指标正确） | ✅ |
 | test_empty_questions_handled（空输入不崩溃） | ✅ |
+
+### 错因多选 v3.1.0（51 项，全部通过）
+
+| 测试 | 结果 |
+| --- | --- |
+| TestParseErrorCauses × 19（单值/多值/分隔符/标签直填/全部/无/去重升序/越界/嵌套列表/五类任意组合） | ✅ |
+| TestValidateErrorCodes × 5（合法列表、空值、越界拒绝、非整数拒绝、非列表拒绝） | ✅ |
+| TestDisplay × 7（多选格式化、带代码前缀、五类全选回显、主错因、菜单、Jinja Undefined 兜底） | ✅ |
+| TestLegacyCompat × 4（旧版 error_code 升级、不覆盖新字段、越界旧值一致化、无字段不新增） | ✅ |
+| TestAnalyzeKnowledgeIntegration × 4（多选归一化、旧版升级、越界值记入 note、缺省为空） | ✅ |
+| TestPriorityIntegration × 6（多选取最高严重度、概念不清最高、仅「其他」记 missing、空值记 missing、五类全选 observed、标签映射） | ✅ |
+| TestValidateOutputIntegration × 5（合法多选通过、越界失败、主错因不一致失败、旧版数据跳过、单选一致通过） | ✅ |
+| TestReportRendering × 4（Markdown/HTML 多选回显、空值回退「未提供」、五类全选渲染） | ✅ |
 
 ## 已知限制（未测试/无法测试的部分）
 

@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-17T20:55:07.266981</dc:date>
+    <dc:date>2026-10-19T12:18:56.426917</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 36.216 90.294894 36.216 100.274094
 L 36.216 208.382094 
 Q 36.216 218.361294 46.26 218.361294 
 z
-" clip-path="url(#p5b914ce533)" style="fill: #f5f7fa; stroke: #37474f; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p07f9eee532)" style="fill: #f5f7fa; stroke: #37474f; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 526.14 218.361294 
@@ -53,7 +53,7 @@ Q 516.096 90.294894 516.096 100.274094
 L 516.096 208.382094 
 Q 516.096 218.361294 526.14 218.361294 
 z
-" clip-path="url(#p5b914ce533)" style="fill: #f5f7fa; stroke: #37474f; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p07f9eee532)" style="fill: #f5f7fa; stroke: #37474f; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 46.26 356.961294 
@@ -66,7 +66,7 @@ Q 36.216 228.894894 36.216 238.874094
 L 36.216 346.982094 
 Q 36.216 356.961294 46.26 356.961294 
 z
-" clip-path="url(#p5b914ce533)" style="fill: #f5f7fa; stroke: #37474f; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#p07f9eee532)" style="fill: #f5f7fa; stroke: #37474f; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- 题型 1：函数概念与表示 -->
@@ -5492,7 +5492,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p5b914ce533">
+  <clipPath id="p07f9eee532">
    <rect x="7.2" y="33.746094" width="1026.72" height="365.904"/>
   </clipPath>
  </defs>

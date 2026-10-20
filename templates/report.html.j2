@@ -82,12 +82,14 @@
 
 <h2>四、错题明细表</h2>
 <table>
-<tr><th>题号</th><th>知识点</th><th>题干（摘要）</th><th>学生答案</th></tr>
+<tr><th>题号</th><th>知识点</th><th>题干（摘要）</th><th>学生答案</th><th>错因（多选）</th></tr>
 {% for q in questions %}
 {% set kps = q.knowledge_points|map(attribute="knowledge_point_name")|join("、") %}
+{% set causes = (q.error_analysis or {}).get("error_codes") %}
 <tr><td>{{ q.question_id }}</td><td>{{ kps or "未匹配" }}</td>
 <td>{{ (q.question_text or "")|replace("\n"," ")|truncate(50, True, "…") }}</td>
-<td>{{ (q.student_answer or "未提供")|replace("\n"," ")|truncate(30, True, "…") }}</td></tr>
+<td>{{ (q.student_answer or "未提供")|replace("\n"," ")|truncate(30, True, "…") }}</td>
+<td>{{ causes|error_causes }}</td></tr>
 {% endfor %}
 </table>
 
@@ -97,6 +99,7 @@
 <ul>
 <li><b>可观察到的错误</b>：{{ ea.observed_error or "无（未提供学生作答数据，或作答正确）" }}</li>
 <li><b>推测原因</b>：{% if ea.suspected_causes %}{{ ea.suspected_causes|join("；") }}{% else %}暂无法判断{% endif %}</li>
+<li><b>错因标注（多选）</b>：{{ ea.error_codes|error_causes(True) }}（v3.1.0 起一道题可同时标注多个错因，任意组合）</li>
 <li><b>判断依据</b>：{% if ea.evidence %}{{ ea.evidence|join("；") }}{% else %}证据不足{% endif %}</li>
 <li><b>置信度</b>：{{ ea.confidence or "低" }}　|　<b>需用户确认</b>：{{ "是" if ea.needs_confirmation else "否" }}</li>
 </ul>

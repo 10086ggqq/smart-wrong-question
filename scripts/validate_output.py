@@ -21,6 +21,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import SkillError, load_config, read_json, setup_logger
+from error_causes import ERROR_CAUSES, format_error_causes, validate_error_codes
 
 REQUIRED_SECTIONS = [
     "报告基本信息", "错题整体概览", "主要薄弱知识点", "错题明细表",
@@ -28,6 +29,38 @@ REQUIRED_SECTIONS = [
     "复测记录", "后续学习建议", "数据来源与不确定性说明",
 ]
 RE_MD_IMAGE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
+
+
+def _check_error_causes(data: dict, label: str) -> tuple[bool, str]:
+    """校验错因多选字段（v3.1.0）。
+
+    规则：
+    - error_codes 若存在必须是 1-5 的整数代码列表（空列表 = 未标注，合法）；
+    - 旧版 error_code 若存在必须等于 error_codes 的第一个元素（主错因）；
+    - 两个字段都不存在时合法（旧版数据，未使用多选字段）。
+    """
+    problems: list[str] = []
+    for q in data.get("questions", []):
+        qid = q.get("question_id", "?")
+        ea = q.get("error_analysis") or {}
+        if "error_codes" not in ea and "error_code" not in ea:
+            continue  # 旧版数据未使用错因代码字段
+        try:
+            codes = validate_error_codes(ea.get("error_codes"))
+        except SkillError as e:
+            problems.append(f"{qid}: {e}")
+            continue
+        legacy = ea.get("error_code")
+        if legacy is not None:
+            expected = codes[0] if codes else None
+            if legacy != expected:
+                problems.append(
+                    f"{qid}: error_code={legacy} 与 error_codes={codes} 不一致"
+                    f"（主错因应为 {expected}）"
+                )
+    if problems:
+        return False, "；".join(problems)
+    return True, f"{label} 错因多选字段合法（代码 1-5：{format_error_causes(sorted(ERROR_CAUSES))}）"
 
 
 def validate_output(output_dir: Path, config: dict, logger=None) -> dict[str, Any]:
@@ -105,6 +138,20 @@ def validate_output(output_dir: Path, config: dict, logger=None) -> dict[str, An
             record("复习计划时间预算", False, f"计划文件无法解析：{e}")
     else:
         record("复习计划时间预算", False, "study_plan.json 不存在", severity="warning")
+
+    # 7. 错因多选字段（v3.1.0）：analysis-data.json 与 questions.json 中的
+    #    error_codes / error_code 合法性及主错因一致性
+    for name in (rconf["data_filename"], "questions.json"):
+        path = output_dir / name
+        if not path.exists():
+            continue
+        try:
+            payload = read_json(path)
+        except SkillError as e:
+            record(f"错因多选字段（{name}）", False, f"文件无法解析：{e}")
+            continue
+        ok, detail = _check_error_causes(payload, name)
+        record(f"错因多选字段（{name}）", ok, detail)
 
     failed = [c for c in checks if not c["ok"] and c["severity"] == "error"]
     warnings = [c for c in checks if not c["ok"] and c["severity"] == "warning"]

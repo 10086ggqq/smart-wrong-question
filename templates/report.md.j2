@@ -64,15 +64,16 @@
 
 ## 四、错题明细表
 
-| 题号 | 学科相关 | 题干（摘要） | 标准答案 | 学生答案 | 状态 |
-| --- | --- | --- | --- | --- | --- |
+| 题号 | 学科相关 | 题干（摘要） | 标准答案 | 学生答案 | 错因（多选） | 状态 |
+| --- | --- | --- | --- | --- | --- | --- |
 {% for q in questions %}
 {% set kps = q.knowledge_points|map(attribute="knowledge_point_name")|join("、") %}
 {% set qtext = (q.question_text or "")|replace("\n", " ")|truncate(60, True, "…") %}
 {% set sans = (q.standard_answer or "未提供")|replace("\n", " ")|truncate(40, True, "…") %}
 {% set stuans = (q.student_answer or "未提供")|replace("\n", " ")|truncate(40, True, "…") %}
 {% set status = "已完成" if q.review_status == "done" else "待复习" %}
-| {{ q.question_id }} | {{ kps or "未匹配" }} | {{ qtext }} | {{ sans }} | {{ stuans }} | {{ status }} |
+{% set causes = (q.error_analysis or {}).get("error_codes") %}
+| {{ q.question_id }} | {{ kps or "未匹配" }} | {{ qtext }} | {{ sans }} | {{ stuans }} | {{ causes|error_causes }} | {{ status }} |
 {% endfor %}
 
 ## 五、错因分析及证据
@@ -88,6 +89,8 @@
 {% endif %}
 
 - **推测原因**：{% if ea.suspected_causes %}{{ ea.suspected_causes|join("；") }}{% else %}暂无法判断{% endif %}
+
+- **错因标注（多选）**：{{ ea.error_codes|error_causes(True) }}（v3.1.0 起一道题可同时标注多个错因，任意组合）
 
 - **判断依据**：{% if ea.evidence %}{{ ea.evidence|join("；") }}{% else %}证据不足{% endif %}
 

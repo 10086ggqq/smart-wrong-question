@@ -2,11 +2,11 @@
   "meta": {
     "subject": "数学",
     "source_file": "sample_questions.md",
-    "created_at": "2026-10-17T20:55:06",
+    "created_at": "2026-10-19T12:18:55",
     "extraction_method": "markdown-normalize",
     "question_count": 6,
     "knowledge_base": "高中数学示例知识点库",
-    "generated_at": "2026-10-17T20:55:08"
+    "generated_at": "2026-10-19T12:18:57"
   },
   "questions": [
     {
@@ -66,6 +66,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -126,6 +128,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -175,6 +179,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -220,6 +226,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -280,6 +288,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true,
@@ -325,6 +335,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -343,8 +355,8 @@
         "prerequisite_impact": 0.2,
         "retest_gap": 0.15
       },
-      "normalization": "各指标均已归一到 [0,1]：频率=错题数/总题数；重复=min(1,(n-1)/2)；严重度=错因严重度映射均值；先修影响=被依赖数/最大被依赖数（含前置缺口加成）；复测差距缺失时取保守值。",
-      "generated_at": "2026-10-17T20:55:06"
+      "normalization": "各指标均已归一到 [0,1]：频率=错题数/总题数；重复=min(1,(n-1)/2)；严重度=错因严重度映射值（多选错因取最高，再按题平均）；先修影响=被依赖数/最大被依赖数（含前置缺口加成）；复测差距缺失时取保守值。",
+      "generated_at": "2026-10-19T12:18:55"
     },
     "global": {
       "total_questions": 6,
@@ -657,7 +669,7 @@
       "budget_per_day": 54,
       "reserve_ratio": 0.9,
       "retest_interval_days": 3,
-      "generated_at": "2026-10-17T20:55:06",
+      "generated_at": "2026-10-19T12:18:55",
       "note": "无复测反馈数据，间隔按保守值安排；掌握良好后可适当延长间隔。"
     },
     "days": [

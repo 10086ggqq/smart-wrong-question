@@ -17,6 +17,16 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import PROJECT_ROOT, SkillError, load_config, read_json, setup_logger, write_json
+from error_causes import format_error_causes
+
+
+def _error_causes_filter(codes, with_code: bool = False) -> str:
+    """Jinja 过滤器：多选错因展示。Undefined/None -> 「未提供」。"""
+    if codes is None or isinstance(codes, bool):
+        return "未提供"
+    if not isinstance(codes, (list, tuple, str, int, float)):
+        return "未提供"
+    return format_error_causes(codes, with_code=bool(with_code))
 
 
 def _overview(data: dict, priority: dict) -> dict[str, Any]:
@@ -51,6 +61,9 @@ def _render(template_path: Path, context: dict) -> str:
         lstrip_blocks=True,
         keep_trailing_newline=True,
     )
+    # v3.1.0 多选错因展示过滤器：{{ ea.error_codes|error_causes }} /
+    # {{ ea.error_codes|error_causes(True) }}（带代码前缀）
+    env.filters["error_causes"] = _error_causes_filter
     template = env.get_template(template_path.name)
     return template.render(**context)
 

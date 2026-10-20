@@ -21,11 +21,20 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import SkillError, load_config, read_json, setup_logger, write_json
+from error_causes import to_severity_labels
 
 
-def _severity_of(question: dict, severity_map: dict) -> tuple[float | None, str]:
+def _severity_of(question: dict, severity_map: dict,
+                 severity_labels: dict[str, str] | None = None) -> tuple[float | None, str]:
     """从错因分析提取严重度。返回 (值, 来源)。
 
+    支持三种错因来源（v3.1.0 起前两种可为多选）：
+    1. `error_analysis.error_codes`：交互主流程的多选错因代码（1-5），
+       经 config 的 severity_labels 映射为严重度标签；
+    2. `error_analysis.suspected_causes`：批处理侧推测原因（列表，取最高）；
+    3. `error_analysis.observed_error`：可观察错误（字符串）。
+
+    多选时取**最高**严重度（复合错因的严重度不低于其任一分项）。
     「暂无法判断」是无信息标签，不计入观察值（避免把未知当作已知）。
     """
     ea = question.get("error_analysis") or {}
@@ -33,6 +42,8 @@ def _severity_of(question: dict, severity_map: dict) -> tuple[float | None, str]
     observed = ea.get("observed_error")
     if observed:
         causes.append(str(observed))
+    if severity_labels:
+        causes.extend(to_severity_labels(ea.get("error_codes"), severity_labels))
     mapped = [severity_map[c] for c in causes
               if c in severity_map and c != "暂无法判断"]
     if not mapped:
@@ -51,6 +62,7 @@ def calculate_priority(
     weights = pconf["weights"]
     severity_map = pconf["severity_map"]
     conservative = pconf["conservative_value"]
+    severity_labels = (config.get("error_causes") or {}).get("severity_labels") or {}
 
     questions = data.get("questions", [])
     total = max(len(questions), 1)
@@ -89,8 +101,8 @@ def calculate_priority(
         # 2) 近期重复（observed，基于错题计数；无时间字段时说明规则）
         recency = min(1.0, (wrong_count - 1) / 2.0) if wrong_count >= 2 else 0.0
 
-        # 3) 错因严重度（observed / missing）
-        severities = [_severity_of(q, severity_map) for q in qs]
+        # 3) 错因严重度（observed / missing）；多选错因取最高严重度后按题平均
+        severities = [_severity_of(q, severity_map, severity_labels) for q in qs]
         observed_sev = [s for s, src in severities if src == "observed"]
         if observed_sev:
             severity = sum(observed_sev) / len(observed_sev)
@@ -154,7 +166,8 @@ def calculate_priority(
             "model": "rule-based-weighted-sum",
             "weights": weights,
             "normalization": "各指标均已归一到 [0,1]：频率=错题数/总题数；重复=min(1,(n-1)/2)；"
-                             "严重度=错因严重度映射均值；先修影响=被依赖数/最大被依赖数（含前置缺口加成）；复测差距缺失时取保守值。",
+                             "严重度=错因严重度映射值（多选错因取最高，再按题平均）；"
+                             "先修影响=被依赖数/最大被依赖数（含前置缺口加成）；复测差距缺失时取保守值。",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
         },
         "global": {

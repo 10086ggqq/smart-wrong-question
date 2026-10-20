@@ -2,7 +2,7 @@
   "meta": {
     "subject": "数学",
     "source_file": "sample_questions.md",
-    "created_at": "2026-10-17T20:55:06",
+    "created_at": "2026-10-19T12:18:55",
     "extraction_method": "markdown-normalize",
     "question_count": 6,
     "knowledge_base": "高中数学示例知识点库"
@@ -65,6 +65,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -125,6 +127,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -174,6 +178,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -219,6 +225,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true
@@ -279,6 +287,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true,
@@ -324,6 +334,8 @@
         "suspected_causes": [
           "暂无法判断"
         ],
+        "error_codes": [],
+        "error_code": null,
         "evidence": [],
         "confidence": "低",
         "needs_confirmation": true

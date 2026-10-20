@@ -99,6 +99,17 @@ def _fallback_config() -> dict:
             "missing_value_policy": "conservative",
             "conservative_value": 0.5,
         },
+        "error_causes": {
+            # v3.1.0 多选错因配置；代码/标签真源在 scripts/error_causes.py
+            "multi_select": True,
+            "severity_labels": {
+                "概念不清": "概念理解不清",
+                "方法没掌握": "解题方法选择不当",
+                "计算失误": "计算或推导错误",
+                "时间不够": "解题步骤不完整",
+                "其他": "暂无法判断",
+            },
+        },
         "graphs": {
             "knowledge_graph": {
                 "filename_prefix": "knowledge-graph",

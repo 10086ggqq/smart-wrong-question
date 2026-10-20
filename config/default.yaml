@@ -9,6 +9,19 @@ study:
   task_granularity: 5            # 任务时长取整粒度（分钟）
   reserve_ratio: 0.9             # 每日预算安全系数（留 10% 余量）
 
+error_causes:
+  # v3.1.0：错因由单选（error_code）改为多选（error_codes，代码 1-5 任意组合）。
+  # 代码与标签的唯一真源在 scripts/error_causes.py（ERROR_CAUSES），此处不重复定义。
+  multi_select: true                 # true=一道题可同时标注多个错因（含五类全选）
+  # 交互错因 -> 批处理严重度标签（键为 severity_map 的标签）。
+  # 「其他」无实质错因信息，映射到保守标签「暂无法判断」，不计入观察值。
+  severity_labels:
+    概念不清: 概念理解不清
+    方法没掌握: 解题方法选择不当
+    计算失误: 计算或推导错误
+    时间不够: 解题步骤不完整
+    其他: 暂无法判断
+
 priority:
   # 规则评分权重（和为 1，可调）
   weights:

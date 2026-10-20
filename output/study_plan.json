@@ -5,7 +5,7 @@
     "budget_per_day": 54,
     "reserve_ratio": 0.9,
     "retest_interval_days": 3,
-    "generated_at": "2026-10-17T20:55:06",
+    "generated_at": "2026-10-19T12:18:55",
     "note": "无复测反馈数据，间隔按保守值安排；掌握良好后可适当延长间隔。"
   },
   "days": [
